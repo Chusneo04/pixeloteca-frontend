@@ -8,9 +8,23 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch()
+            const response = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({email, clave})
+            })
+
+            const data = await response.json()
+
+            alert(data.message)
+
+            localStorage.setItem('token', data.token)
+
+            window.location.href = '/perfil'
         } catch (error) {
-            
+            alert(error)
         }
     }
 
