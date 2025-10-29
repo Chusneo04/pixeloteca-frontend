@@ -30,6 +30,14 @@ const Perfil = () => {
         }
     }
     
+    const eliminarTitulo = (id) => {
+        fetch(`${process.env.REACT_APP_BACKEND}/eliminar_titulo/${id}`, {
+            method: 'DELETE'
+        })
+        window.location.reload();
+    };
+
+
     return(
         <div className="w-full min-h-screen bg-[#1C1C1E] flex flex-col items-center gap-[50px] pt-[10px] lg:pb-[50px] overflow-hidden">
             <div className="flex flex-col h-full w-full">
@@ -52,7 +60,7 @@ const Perfil = () => {
                                 
                                 <div className="w-full flex justify-evenly mt-[10px]">
                                     <a href="/editar_titulo" className="bg-[green] text-[white] w-[60px] h-[60px] flex items-center justify-center text-center text-[25px] rounded-[30px]"><i className="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="/eliminar_titulo" className="bg-[red] text-[white] w-[60px] h-[60px] flex items-center justify-center text-center text-[25px] rounded-[30px]"><i className="fa-solid fa-trash"></i></a>
+                                    <button onClick={() => eliminarTitulo(titulo._id)} className="bg-[red] text-[white] w-[60px] h-[60px] flex items-center justify-center text-center text-[25px] rounded-[30px]"><i className="fa-solid fa-trash"></i></button>
                                 </div>
                             </li>
                         ))}
