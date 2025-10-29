@@ -5,6 +5,7 @@ import Login from './pages/loginPage.js';
 import Register from './pages/registerPage.js';
 import RecuperarClave from './pages/recuperarclavePage.js';
 import NuevaClave from './pages/nuevaclavePage.js';
+import Perfil from './pages/perfilPage.js';
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/recuperar_clave" element={<RecuperarClave />}/>
           <Route path="/nueva_clave" element={<NuevaClave />}/>
+          <Route path="/perfil" element={<Perfil />} />
         </>
       </Routes>
     </Router>
