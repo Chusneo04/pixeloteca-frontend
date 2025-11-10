@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import videojuegos from '../assets/icono_videojuego.png';
 import libros from '../assets/icono_libro.png';
@@ -37,6 +38,13 @@ const Perfil = () => {
         window.location.reload();
     };
 
+    const navigate = useNavigate();
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (!token) {
+            navigate('/login')
+        }
+    }, [])
 
     return(
         <div className="w-full min-h-screen bg-[#1C1C1E] flex flex-col items-center gap-[50px] pt-[10px] lg:pb-[50px] overflow-hidden">
@@ -59,8 +67,8 @@ const Perfil = () => {
                                 </div>
                                 
                                 <div className="w-full flex justify-evenly mt-[10px]">
-                                    <a href={`/editar_titulo/${titulo._id}`} className="bg-[green] text-[white] w-[60px] h-[60px] flex items-center justify-center text-center text-[25px] rounded-[30px]"><i className="fa-solid fa-pen-to-square"></i></a>
-                                    <button onClick={() => eliminarTitulo(titulo._id)} className="bg-[red] text-[white] w-[60px] h-[60px] flex items-center justify-center text-center text-[25px] rounded-[30px]"><i className="fa-solid fa-trash"></i></button>
+                                    <a href={`/editar_titulo/${titulo._id}`} className="cursor-[pointer] bg-[green] text-[white] w-[60px] h-[60px] flex items-center justify-center text-center text-[25px] rounded-[30px]"><i className="fa-solid fa-pen-to-square"></i></a>
+                                    <button onClick={() => eliminarTitulo(titulo._id)} className="cursor-[pointer] bg-[red] text-[white] w-[60px] h-[60px] flex items-center justify-center text-center text-[25px] rounded-[30px]"><i className="fa-solid fa-trash"></i></button>
                                 </div>
                             </li>
                         ))}
