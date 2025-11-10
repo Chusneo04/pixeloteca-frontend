@@ -7,6 +7,7 @@ import RecuperarClave from './pages/recuperarclavePage.js';
 import NuevaClave from './pages/nuevaclavePage.js';
 import Perfil from './pages/perfilPage.js';
 import AgregarTitulo from './pages/agregartituloPage.js';
+import EditarTitulo from './pages/editartituloPage.js';
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/nueva_clave" element={<NuevaClave />}/>
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/agregar_titulo" element={<AgregarTitulo />} />
+          <Route path="/editar_titulo/:id" element={<EditarTitulo />} />
         </>
       </Routes>
     </Router>
