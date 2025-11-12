@@ -19,6 +19,8 @@ const Register = () => {
             })
 
             const data = await response.json();
+            console.log('Data:',data);
+            console.log('Response:',response);
             if (!response.ok) {
                 throw new Error(data.message)
             }
